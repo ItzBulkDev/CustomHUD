@@ -33,7 +33,7 @@ class CustomHUD extends PluginTask{
 	}
 	
 	public function onRun($currentTick){
-                        foreach($this->plugin->getServer()->getOnlinePlayers as $p){
+                        foreach($this->plugin->getServer()->getOnlinePlayers() as $p){
                                 if($this->countdownValue == 0){
 					$p->sendMessage($this->plugin->getConfig->get("1"));
 					$this->message++;
