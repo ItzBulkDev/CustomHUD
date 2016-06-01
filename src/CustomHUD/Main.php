@@ -32,7 +32,7 @@ class CustomHUD extends PluginTask{
 		$this->message = CustomHUD::MESSAGE;
 	}
 	
-	public function onRun($currentTick){
+	public function onRun($tick){
                         foreach($this->plugin->getServer()->getOnlinePlayers() as $p){
                         	$name = $p->getName();
                                 if($this->message == 0){
