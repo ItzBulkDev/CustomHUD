@@ -1,0 +1,5 @@
+name: CustomHUD
+main: CustomHUD\Main
+version: 1.0.0
+api: [2.00]
+author: Bulk
