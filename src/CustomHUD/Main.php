@@ -35,19 +35,19 @@ class CustomHUD extends PluginTask{
 	public function onRun($currentTick){
                         foreach($this->plugin->getServer()->getOnlinePlayers() as $p){
                                 if($this->message == 0){
-					$p->sendMessage($this->plugin->getConfig->get("1"));
+					$p->sendMessage($this->plugin->getConfig()->get("1"));
 					$this->message++;
                                 }
 				if($this->message == 1){
-					$p->sendMessage($this->plugin->getConfig->get("2"));
+					$p->sendMessage($this->plugin->getConfig()->get("2"));
 					$this->message++;
                                 }
                                 if($this->message == 2){
-					$p->sendMessage($this->plugin->getConfig->get("3"));
+					$p->sendMessage($this->plugin->getConfig()->get("3"));
 					$this->message++;
                                 }
                                 if($this->message == 3){
-					$p->sendMessage($this->plugin->getConfig->get("4"));
+					$p->sendMessage($this->plugin->getConfig()->get("4"));
 					$this->message--;
 					$this->message--;
                                 }
