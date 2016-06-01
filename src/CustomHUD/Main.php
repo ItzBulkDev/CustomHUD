@@ -44,6 +44,10 @@ class CustomHUD extends PluginTask{
                                 }
                                 if($this->countdownValue == 2){
 					$p->sendMessage($this->plugin->getConfig->get("3"));
+					$this->message++;
+                                }
+                                if($this->countdownValue == 3){
+					$p->sendMessage($this->plugin->getConfig->get("4"));
 					$this->message--;
 					$this->message--;
                                 }
