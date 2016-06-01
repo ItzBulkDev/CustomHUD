@@ -34,20 +34,33 @@ class CustomHUD extends PluginTask{
 	
 	public function onRun($currentTick){
                         foreach($this->plugin->getServer()->getOnlinePlayers() as $p){
+                        	$name = $p->getName();
                                 if($this->message == 0){
-					$p->sendMessage($this->plugin->getConfig()->get("1"));
+                                	$message = $this->plugin->getConfig()->get("1");
+                                	$m = str_replace("{LINE}","\n",$message);
+                                	$m = str_replace("{NAME}",$name,$message);
+					$p->sendTip($m);
 					$this->message++;
                                 }
 				if($this->message == 1){
-					$p->sendMessage($this->plugin->getConfig()->get("2"));
+                                	$message = $this->plugin->getConfig()->get("2");
+                                	$m = str_replace("{LINE}","\n",$message);
+                                	$m = str_replace("{NAME}",$name,$message);
+					$p->sendTip($m);
 					$this->message++;
                                 }
                                 if($this->message == 2){
-					$p->sendMessage($this->plugin->getConfig()->get("3"));
+                                	$message = $this->plugin->getConfig()->get("3");
+                                	$m = str_replace("{LINE}","\n",$message);
+                                	$m = str_replace("{NAME}",$name,$message);
+					$p->sendTip($m);
 					$this->message++;
                                 }
                                 if($this->message == 3){
-					$p->sendMessage($this->plugin->getConfig()->get("4"));
+					$message = $this->plugin->getConfig()->get("4");
+                                	$m = str_replace("{LINE}","\n",$message);
+                                	$m = str_replace("{NAME}",$name,$message);
+					$p->sendTip($m);
 					$this->message--;
 					$this->message--;
                                 }
