@@ -1,7 +1,7 @@
 ---
 #interval = ticks
 #20 ticks = 1 second
-interval: 5
+interval: 20
 #Each message displayed in order
 # 1 = message 1
 1: "§l§bDEVINE §r§e- §bplay.devinepe.com §e- §b19132"
