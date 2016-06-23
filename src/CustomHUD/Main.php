@@ -15,7 +15,7 @@ class Main extends PluginBase implements Listener{
     $config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
     $this->getLogger()->info(C::GREEN . "Enabled!");
-    $this->getServer()->getScheduler()->scheduleRepeatingTask(new CustomHUD($this), 5);
+    $this->getServer()->getScheduler()->scheduleRepeatingTask(new CustomHUD($this), $config->get("interval"));
   }
 }
   
