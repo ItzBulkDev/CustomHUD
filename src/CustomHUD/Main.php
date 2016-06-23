@@ -40,30 +40,38 @@ class CustomHUD extends PluginTask{
                                 	$m = str_replace("{LINE}","\n",$message);
                                 	$m = str_replace("{NAME}",$name,$message);
 					$p->sendTip($m);
-					$this->message++;
                                 }
 				if($this->message == 1){
                                 	$message = $this->plugin->getConfig()->get("2");
                                 	$m = str_replace("{LINE}","\n",$message);
                                 	$m = str_replace("{NAME}",$name,$message);
 					$p->sendTip($m);
-					$this->message++;
                                 }
                                 if($this->message == 2){
                                 	$message = $this->plugin->getConfig()->get("3");
                                 	$m = str_replace("{LINE}","\n",$message);
                                 	$m = str_replace("{NAME}",$name,$message);
 					$p->sendTip($m);
-					$this->message++;
                                 }
                                 if($this->message == 3){
 					$message = $this->plugin->getConfig()->get("4");
                                 	$m = str_replace("{LINE}","\n",$message);
                                 	$m = str_replace("{NAME}",$name,$message);
 					$p->sendTip($m);
+                                }
+			}
+			       if($this->message == 0){
+					$this->message++;
+                                }
+				if($this->message == 1){
+					$this->message++;
+                                }
+                                if($this->message == 2){
+					$this->message++;
+                                }
+                                if($this->message == 3){
 					$this->message--;
 					$this->message--;
                                 }
-			}
 		}
         }
