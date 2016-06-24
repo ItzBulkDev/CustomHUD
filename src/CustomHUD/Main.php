@@ -77,7 +77,7 @@ class JoinTask extends PluginTask{
 	
 	public function onRun($tick){
 		if($this->TIME <= 2){
-                        	$name = $p->getName();
+                        	$name = $this->player->getName();
                                 	$message = $this->plugin->getConfig()->get("join-message");
                                 	$m = str_replace("{LINE}","\n",$message);
                                 	$m = str_replace("{NAME}",$name,$message);
