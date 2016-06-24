@@ -72,7 +72,7 @@ class JoinTask extends PluginTask{
 		$this->plugin = $plugin;
 		$thus->player = $p;
 		parent::__construct($plugin);
-		$this->TIME = JoinTask::MESSAGE;
+		$this->TIME = JoinTask::TIME;
 	}
 	
 	public function onRun($tick){
