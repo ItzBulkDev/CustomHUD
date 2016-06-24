@@ -39,7 +39,7 @@ class CustomHUD extends PluginTask{
                                 	$message = $this->plugin->getConfig()->get($this->message);
                                 	$m = str_replace("{LINE}","\n",$message);
                                 	$m = str_replace("{NAME}",$name,$message);
-					$p->sendTip($m. $this->message);
+					$p->sendTip($m.":" . $this->message);
                                 }
 			}
                                 if($this->message < 3){
