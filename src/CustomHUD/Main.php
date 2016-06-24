@@ -20,7 +20,6 @@ class Main extends PluginBase implements Listener{
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
     $this->getLogger()->info(C::GREEN . "Enabled!");
     $this->getServer()->getScheduler()->scheduleRepeatingTask(new CustomHUD($this), $config->get("interval"));
-    $this->getScheduler()->cancelTask($this->countdownTaskHandler->getTaskId());
   }
   
   public function onJoin(PlayerJoinEvent $event){
@@ -78,7 +77,11 @@ class JoinTask extends PluginTask{
 	
 	public function onRun($tick){
 		if($this->TIME <= 2){
-		$this->player->sendTip($this->plugin->getConfig()->get("join-message"));
+                        	$name = $p->getName();
+                                	$message = $this->plugin->getConfig()->get("join-message");
+                                	$m = str_replace("{LINE}","\n",$message);
+                                	$m = str_replace("{NAME}",$name,$message);
+					$p->sendTip($m . $this->plugin->getConfig()->get("3"));
 		$this->TIME++;
         }
         	if($this->TIME >= 2){
