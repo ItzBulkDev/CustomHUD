@@ -81,7 +81,7 @@ class JoinTask extends PluginTask{
                                 	$message = $this->plugin->getConfig()->get("join-message");
                                 	$m = str_replace("{LINE}","\n",$message);
                                 	$m = str_replace("{NAME}",$name,$message);
-					$this->player->sendTip($m . $this->plugin->getConfig()->get("3"));
+					$this->player->sendTip($m);
 		$this->TIME++;
         }
         	if($this->TIME >= 2){
