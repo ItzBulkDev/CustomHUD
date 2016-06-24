@@ -12,7 +12,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 
 class Main extends PluginBase implements Listener{
 	
-	public $this->joinTask;
+	public $joinTask;
 	
   public function onEnable(){
     $this->saveDefaultConfig();
