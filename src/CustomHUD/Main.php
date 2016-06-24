@@ -27,7 +27,7 @@ class Main extends PluginBase implements Listener{
   }
   
   public function stopTask(){
-  $this->getScheduler()->cancelTask($this->joinTask->getTaskId());	
+  $this->getServer()->getScheduler()->cancelTask($this->joinTask->getTaskId());	
   }
 }
   
