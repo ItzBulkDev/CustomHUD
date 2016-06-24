@@ -46,6 +46,7 @@ class CustomHUD extends PluginTask{
                                 if($this->message == 3){
 					$this->message--;
 					$this->message--;
+					$this->message--;
                                 }
 		}
         }
