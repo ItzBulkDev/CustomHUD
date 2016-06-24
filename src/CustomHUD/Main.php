@@ -40,10 +40,10 @@ class CustomHUD extends PluginTask{
                                 	$m = str_replace("{NAME}",$name,$message);
 					$p->sendTip($m);
 			}
-                                if($this->message < 3){
+                                if($this->message < 4){
 					$this->message++;
                                 }
-                                if($this->message == 3){
+                                if($this->message == 4){
 					$this->message--;
 					$this->message--;
 					$this->message--;
