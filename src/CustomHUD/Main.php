@@ -36,10 +36,10 @@ class CustomHUD extends PluginTask{
                         foreach($this->plugin->getServer()->getOnlinePlayers() as $p){
                         	$name = $p->getName();
                                 if($this->message == 0){
-                                	$message = $this->plugin->getConfig()->get($this->message);
+                                	$message = $this->plugin->getConfig()->get(strval($this->message));
                                 	$m = str_replace("{LINE}","\n",$message);
                                 	$m = str_replace("{NAME}",$name,$message);
-					$p->sendTip($m.":" . $this->message);
+					$p->sendTip($m);
                                 }
 			}
                                 if($this->message < 3){
