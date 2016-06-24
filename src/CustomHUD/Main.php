@@ -23,12 +23,13 @@ class Main extends PluginBase implements Listener{
   }
   
   public function onJoin(PlayerJoinEvent $event){
-	$this->joinTask = $this->getServer()->getScheduler()->scheduleRepeatingTask(new JoinTask($this, $event->getPlayer()), 20);
+	                        	$name = $tevent->getPlayer()->getName();
+                                	$message = $this->getConfig()->get("join-message");
+                                	$m = str_replace("{LINE}","\n",$message);
+                                	$m = str_replace("{NAME}",$name,$message);
+					$event->getPlayer()->sendTip($m);
   }
   
-  public function stopTask(){
-  $this->getServer()->getScheduler()->cancelTask($this->joinTask->getTaskId());	
-  }
 }
   
   
@@ -62,31 +63,3 @@ class CustomHUD extends PluginTask{
                                 }
 		}
         }
-
-class JoinTask extends PluginTask{
-	
-	const TIME = 0;
-	
-	
-	public function __construct($plugin, Player $p){
-		$this->plugin = $plugin;
-		$this->player = $p;
-		parent::__construct($plugin);
-		$this->TIME = JoinTask::TIME;
-	}
-	
-	public function onRun($tick){
-		if($this->TIME <= 2){
-                        	$name = $this->player->getName();
-                                	$message = $this->plugin->getConfig()->get("join-message");
-                                	$m = str_replace("{LINE}","\n",$message);
-                                	$m = str_replace("{NAME}",$name,$message);
-					$this->player->sendTip($m);
-		$this->TIME++;
-        }
-        	if($this->TIME >= 2){
-        	$this->plugin->stopTask();
-        	}
-	}
-	
-        	}
