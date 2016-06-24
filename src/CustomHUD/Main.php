@@ -8,14 +8,27 @@ use pocketmine\Server;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat as C;
 use pocketmine\utils\Config;
+use pocketmine\event\player\PlayerJoinEvent;
 
 class Main extends PluginBase implements Listener{
+	
+	public $this->joinTask;
+	
   public function onEnable(){
     $this->saveDefaultConfig();
     $config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
     $this->getLogger()->info(C::GREEN . "Enabled!");
     $this->getServer()->getScheduler()->scheduleRepeatingTask(new CustomHUD($this), $config->get("interval"));
+    $this->getScheduler()->cancelTask($this->countdownTaskHandler->getTaskId());
+  }
+  
+  public function onJoin(PlayerJoinEvent $event){
+	$this->joinTask = $this->getServer()->getScheduler()->scheduleRepeatingTask(new JoinTask($this, $event->getPlayer()), 20);
+  }
+  
+  public function stopTask(){
+  $this->getScheduler()->cancelTask($this->joinTask->getTaskId());	
   }
 }
   
@@ -50,3 +63,27 @@ class CustomHUD extends PluginTask{
                                 }
 		}
         }
+
+class JoinTask extends PluginTask{
+	
+	const TIME = 0;
+	
+	
+	public function __construct($plugin, Player $p){
+		$this->plugin = $plugin;
+		$thus->player = $p;
+		parent::__construct($plugin);
+		$this->TIME = JoinTask::MESSAGE;
+	}
+	
+	public function onRun($tick){
+		if($this->TIME <= 2){
+		$this->player->sendTip($this->plugin->getConfig()->get("join-message"));
+		$this->TIME++;
+        }
+        	if($this->TIME >= 2){
+        	$this->plugin->stopTask();
+        	}
+	}
+	
+        	}
